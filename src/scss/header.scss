@@ -1,0 +1,144 @@
+header {
+    
+    height: 100vh;
+    
+    display: flex;
+    
+    align-items:center;
+    justify-content: center;
+    align-content: center;
+    
+    position: relative;
+    
+    overflow: hidden;
+    
+}
+
+.name {
+    
+    position: absolute;
+    display: flex;
+    z-index: 4;
+    
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    
+    top: 40%;
+    bottom: 5%;
+    left: 45%; 
+    right: 5%;
+    
+    font-size: 50px;
+    
+    overflow: visible;
+    
+     
+}
+
+.name__span {
+    
+    
+    color: white;
+    
+    background-color: rgba(0, 0, 0, 0.6);
+    
+    padding: 10px 20px;
+    
+    line-height: 60px;
+     
+}
+
+.fe-dev {
+    
+    color: rgb(48, 48, 48);
+    font-size: 0.8em;
+    
+}
+
+.triangle-one {
+    
+    position: absolute;
+    
+    z-index: 3;
+    
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 40vw;
+    border-left-width: 100vw;
+    border-bottom: 130vh solid white;
+    
+}
+
+.triangle-two {
+    
+    position: absolute;
+    
+    z-index: 2;
+    
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 50vw;
+    border-left-width: 110vw;
+    border-bottom: 130vh solid rgb(232, 232, 232);
+    
+}
+
+.triangle-three {
+    
+    position: absolute;
+    
+    z-index: 1;
+    
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 60vw;
+    border-left-width: 120vw;
+    border-bottom: 130vh solid rgb(160, 160, 160);
+    
+}
+
+
+/*
+Media queries
+*/
+
+@media (max-width: 767px) { 
+
+    .name {
+    
+    position: absolute;
+    display: flex;
+    z-index: 4;
+    
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    
+    top: 40%;
+    bottom: 5%;
+    left: 45%; 
+    right: 5%;
+    
+    overflow: visible;
+    
+     
+    }
+
+    .name__span {
+    
+    font-size: 40px;
+    color: white;
+    
+    background-color: rgba(0, 0, 0, 0.6);
+    
+    padding: 10px 15px;
+    
+    line-height: 45px;
+     
+    }
+    
+}
