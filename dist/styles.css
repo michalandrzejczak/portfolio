@@ -218,16 +218,16 @@ header {
   text-align: right;
   top: 40%;
   bottom: 5%;
-  left: 45%;
+  left: 40%;
   right: 5%;
-  font-size: 50px;
   overflow: visible; }
 
 .name__span {
+  font-size: 50px;
   color: white;
+  line-height: 60px;
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 10px 20px;
-  line-height: 60px; }
+  padding: 10px 20px; }
 
 .fe-dev {
   color: #303030;
@@ -264,25 +264,42 @@ header {
   border-bottom: 130vh solid #a0a0a0; }
 
 /*
+name animation
+*/
+.fade-name {
+  opacity: 0;
+  transform: translate(-20vw, -10vh) rotate(-60deg);
+  transition: all 1.5s ease; }
+  .fade-name.animationToggle {
+    opacity: 1;
+    transform: translate(0);
+    transition: all 1s 0.5s cubic-bezier(0.18, 0.89, 0.3, 1); }
+
+/*
 Media queries
 */
 @media (max-width: 767px) {
-  .name {
-    position: absolute;
-    display: flex;
-    z-index: 4;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: right;
-    top: 40%;
-    bottom: 5%;
-    left: 45%;
-    right: 5%;
-    overflow: visible; }
-
   .name__span {
     font-size: 40px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px 15px;
-    line-height: 45px; } }
+    line-height: 45px;
+    padding: 10px 15px; }
+
+  .triangle-one {
+    border-right-width: 50vw;
+    border-left-width: 110vw;
+    border-bottom: 105vh solid white; }
+
+  .triangle-two {
+    border-right-width: 60vw;
+    border-left-width: 120vw;
+    border-bottom: 105vh solid #e8e8e8; }
+
+  .triangle-three {
+    border-right-width: 70vw;
+    border-left-width: 130vw;
+    border-bottom: 105vh solid #a0a0a0; } }
+@media (min-width: 1024px) {
+  .name__span {
+    font-size: 60px;
+    line-height: 70px;
+    padding: 10px 20px; } }

@@ -1,5 +1,25 @@
 'use strict';
 
+var animationsOnScrollModule = function () {
+
+    var $ = require('jquery');
+    var ScrollMagic = require('scrollmagic');
+
+    var animation = $('*[class*="fade"]');
+
+    animation.each(triggerAnimationOnScroll);
+
+    function triggerAnimationOnScroll() {
+
+        var controller = new ScrollMagic.Controller();
+        var scene = new ScrollMagic.Scene({
+
+            triggerElement: this
+
+        }).setClassToggle(this, 'animationToggle').addTo(controller);
+    }
+}();
+
 var navModule = function () {
 
     var $ = require('jquery');
