@@ -31,7 +31,7 @@ header {
   color: #303030;
   font-size: 0.8em; }
 
-.triangle-one {
+.triangle-one__header {
   position: absolute;
   z-index: 3;
   width: 0;
@@ -41,7 +41,7 @@ header {
   border-left-width: 100vw;
   border-bottom: 130vh solid white; }
 
-.triangle-two {
+.triangle-two__header {
   position: absolute;
   z-index: 2;
   width: 0;
@@ -51,7 +51,7 @@ header {
   border-left-width: 110vw;
   border-bottom: 130vh solid #e8e8e8; }
 
-.triangle-three {
+.triangle-three__header {
   position: absolute;
   z-index: 1;
   width: 0;
@@ -82,17 +82,17 @@ Media queries
     line-height: 45px;
     padding: 10px 15px; }
 
-  .triangle-one {
+  .triangle-one__header {
     border-right-width: 50vw;
     border-left-width: 110vw;
     border-bottom: 105vh solid white; }
 
-  .triangle-two {
+  .triangle-two__header {
     border-right-width: 60vw;
     border-left-width: 120vw;
     border-bottom: 105vh solid #e8e8e8; }
 
-  .triangle-three {
+  .triangle-three__header {
     border-right-width: 70vw;
     border-left-width: 130vw;
     border-bottom: 105vh solid #a0a0a0; } }

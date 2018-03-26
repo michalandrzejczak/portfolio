@@ -1,0 +1,80 @@
+#about {
+    
+    height: 100vh;
+    
+    display: flex;
+    
+    align-items:center;
+    justify-content: center;
+    align-content: center;
+    
+    text-align: center;
+    
+    overflow: hidden;
+    
+    position: relative;
+        
+}
+
+.container {
+    
+    z-index: 4;
+    
+    display: inline-block;
+    
+    width: 70%;
+    
+    font-size: 20px; 
+    text-align: center; 
+    
+    padding: 10% 10%; 
+    
+    background-color: rgba(0,0,0,0.6); 
+    
+}
+
+
+.triangle-one__about {
+    
+    position: absolute;
+    
+    z-index: 3;
+    
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 160vw;
+    border-left-width: 100vw;
+    border-top: 100vh solid white;
+    
+}
+
+.triangle-two__about {
+    
+    position: absolute;
+    
+    z-index: 2;
+    
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 170vw;
+    border-left-width: 110vw;
+    border-top: 100vh solid rgb(232, 232, 232);
+
+}
+
+.triangle-three__about {
+    
+    position: absolute;
+    
+    z-index: 1;
+    
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 180vw;
+    border-left-width: 120vw;
+    border-top: 100vh solid rgb(160, 160, 160);
+
+}

@@ -52,7 +52,7 @@ header {
     
 }
 
-.triangle-one {
+.triangle-one__header {
     
     position: absolute;
     
@@ -67,7 +67,7 @@ header {
     
 }
 
-.triangle-two {
+.triangle-two__header {
     
     position: absolute;
     
@@ -82,7 +82,7 @@ header {
     
 }
 
-.triangle-three {
+.triangle-three__header {
     
     position: absolute;
     
@@ -136,7 +136,7 @@ Media queries
     
     }
     
-    .triangle-one {
+    .triangle-one__header {
     
     border-right-width: 50vw;
     border-left-width: 110vw;
@@ -144,7 +144,7 @@ Media queries
     
     }
 
-    .triangle-two {
+    .triangle-two__header {
     
     border-right-width: 60vw;
     border-left-width: 120vw;
@@ -152,7 +152,7 @@ Media queries
     
     }
 
-    .triangle-three {
+    .triangle-three__header {
     
     border-right-width: 70vw;
     border-left-width: 130vw;
