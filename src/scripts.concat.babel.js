@@ -14,7 +14,8 @@ var animationsOnScrollModule = function () {
         var controller = new ScrollMagic.Controller();
         var scene = new ScrollMagic.Scene({
 
-            triggerElement: this
+            triggerElement: this,
+            triggerHook: 0.8
 
         }).setClassToggle(this, 'animationToggle').addTo(controller);
     }

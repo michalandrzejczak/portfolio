@@ -125,6 +125,8 @@ Media queries
 */
 
 @media (max-width: 767px) {
+    
+    
 
     .name__span {
     
@@ -173,4 +175,15 @@ Media queries
     padding: 10px 20px;
     
     }
+}
+@media (max-height: 321px) {
+    
+    .name__span {
+        
+        font-size: 30px;
+        
+        line-height: 30px;
+        
+    }
+    
 }

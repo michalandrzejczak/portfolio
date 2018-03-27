@@ -1,8 +1,11 @@
 
 const animationsOnScrollModule = (function(){
+    
+    
 
     const $ = require('jquery');
     const ScrollMagic = require('scrollmagic');
+    
 
     const animation =  $('*[class*="fade"]');
   
@@ -12,8 +15,9 @@ const animationsOnScrollModule = (function(){
 
         const controller = new ScrollMagic.Controller();
         const scene = new ScrollMagic.Scene({
-
+        
             triggerElement: this,
+            triggerHook: 0.8,
             
         })
         .setClassToggle(this, 'animationToggle')

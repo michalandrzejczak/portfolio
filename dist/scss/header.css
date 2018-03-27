@@ -101,3 +101,7 @@ Media queries
     font-size: 60px;
     line-height: 70px;
     padding: 10px 20px; } }
+@media (max-height: 321px) {
+  .name__span {
+    font-size: 30px;
+    line-height: 30px; } }
