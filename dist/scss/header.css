@@ -39,7 +39,7 @@ header {
   border: 0 solid transparent;
   border-right-width: 40vw;
   border-left-width: 100vw;
-  border-bottom: 130vh solid white; }
+  border-bottom: 130vh solid #f4f4f4; }
 
 .triangle-two__header {
   position: absolute;
@@ -85,7 +85,7 @@ Media queries
   .triangle-one__header {
     border-right-width: 50vw;
     border-left-width: 110vw;
-    border-bottom: 105vh solid white; }
+    border-bottom: 105vh solid #f4f4f4; }
 
   .triangle-two__header {
     border-right-width: 60vw;

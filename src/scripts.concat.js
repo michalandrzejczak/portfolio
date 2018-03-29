@@ -1,12 +1,9 @@
 
 const animationsOnScrollModule = (function(){
-    
-    
-
+ 
     const $ = require('jquery');
     const ScrollMagic = require('scrollmagic');
     
-
     const animation =  $('*[class*="fade"]');
   
     animation.each(triggerAnimationOnScroll);
@@ -22,8 +19,9 @@ const animationsOnScrollModule = (function(){
         })
         .setClassToggle(this, 'animationToggle')
         .addTo(controller);  
+        
     }
-
+ 
 })()
 
 const navModule = (function() {
