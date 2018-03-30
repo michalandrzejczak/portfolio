@@ -5,6 +5,7 @@ const animationsOnScrollModule = (function(){
     const ScrollMagic = require('scrollmagic');
     
     const animation =  $('*[class*="fade"]');
+    
   
     animation.each(triggerAnimationOnScroll);
  
@@ -21,5 +22,22 @@ const animationsOnScrollModule = (function(){
         .addTo(controller);  
         
     }
+    
+    (function rotateCogOnScroll() {
+        
+        const tween = TweenMax.to("#cog", 0.5, {rotation: 1080});
+        
+        const controller = new ScrollMagic.Controller();
+        
+        const scene = new ScrollMagic.Scene({
+        
+            triggerElement: "#skills",
+            duration: "1000%"
+            
+        })
+        .setTween(tween)
+        .addTo(controller); 
+        
+    })()
  
 })()

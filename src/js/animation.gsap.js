@@ -1,7 +1,3 @@
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 /*!
  * @file ScrollMagic GSAP Animation Plugin.
  *
@@ -24,23 +20,23 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(['ScrollMagic', 'TweenMax', 'TimelineMax'], factory);
-    } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
+    } else if (typeof exports === 'object') {
         // CommonJS
         // Loads whole gsap package onto global scope.
         require('gsap');
         factory(require('scrollmagic'), TweenMax, TimelineMax);
     } else {
         // Browser globals
-        factory(root.ScrollMagic || root.jQuery && root.jQuery.ScrollMagic, root.TweenMax || root.TweenLite, root.TimelineMax || root.TimelineLite);
+        factory(root.ScrollMagic || (root.jQuery && root.jQuery.ScrollMagic), root.TweenMax || root.TweenLite, root.TimelineMax || root.TimelineLite);
     }
-})(undefined, function (ScrollMagic, Tween, Timeline) {
+}(this, function(ScrollMagic, Tween, Timeline) {
     "use strict";
-
     var NAMESPACE = "animation.gsap";
 
     // (BUILD) - REMOVE IN MINIFY - START
-    var console = window.console || {},
-        err = Function.prototype.bind.call(console.error || console.log || function () {}, console);
+    var
+        console = window.console || {},
+        err = Function.prototype.bind.call(console.error || console.log || function() {}, console);
     if (!ScrollMagic) {
         err("(" + NAMESPACE + ") -> ERROR: The ScrollMagic main module could not be found. Please make sure it's loaded before this plugin or use an asynchronous loader like requirejs.");
     }
@@ -48,7 +44,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         err("(" + NAMESPACE + ") -> ERROR: TweenLite or TweenMax could not be found. Please make sure GSAP is loaded before ScrollMagic or use an asynchronous loader like requirejs.");
     }
     // (BUILD) - REMOVE IN MINIFY - END
-
+    
     /*
      * ----------------------------------------------------------------
      * Extensions for Scene
@@ -86,21 +82,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @returns {Scene} `set` -  Parent object for chaining.
      */
     // add option (TODO: DOC (private for dev))
-    ScrollMagic.Scene.addOption("tweenChanges", // name
-    false, // default
-    function (val) {
-        // validation callback
-        return !!val;
-    });
+    ScrollMagic.Scene.addOption(
+        "tweenChanges", // name
+        false, // default
+        function (val) { // validation callback
+            return !!val;
+        }
+    );
     // extend scene
     ScrollMagic.Scene.extend(function () {
         var Scene = this,
-            _tween;
+        _tween;
 
         // (BUILD) - REMOVE IN MINIFY - START
-        var log = function log() {
-            if (Scene._log) {
-                // not available, when main source minified
+        var log = function () {
+            if (Scene._log) { // not available, when main source minified
                 Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ")", "->");
                 Scene._log.apply(this, arguments);
             }
@@ -119,9 +115,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
          * Update the tween progress to current position.
          * @private
          */
-        var updateTweenProgress = function updateTweenProgress() {
+        var updateTweenProgress = function () {
             if (_tween) {
-                var progress = Scene.progress(),
+                var
+                    progress = Scene.progress(),
                     state = Scene.state();
                 if (_tween.repeat && _tween.repeat() === -1) {
                     // infinite loop, so not in relation to progress
@@ -130,16 +127,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     } else if (state !== 'DURING' && !_tween.paused()) {
                         _tween.pause();
                     }
-                } else if (progress != _tween.progress()) {
-                    // do we even need to update the progress?
+                } else if (progress != _tween.progress()) { // do we even need to update the progress?
                     // no infinite loop - so should we just play or go to a specific point in time?
                     if (Scene.duration() === 0) {
                         // play the animation
-                        if (progress > 0) {
-                            // play from 0 to 1
+                        if (progress > 0) { // play from 0 to 1
                             _tween.play();
-                        } else {
-                            // play from 1 to 0
+                        } else { // play from 1 to 0
                             _tween.reverse();
                         }
                     } else {
@@ -199,7 +193,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         Scene.setTween = function (TweenObject, duration, params) {
             var newTween;
             if (arguments.length > 1) {
-                if (arguments.length < 3) {
+                if ( arguments.length < 3) {
                     params = duration;
                     duration = 1;
                 }
@@ -208,7 +202,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             try {
                 // wrap Tween into a Timeline Object if available to include delay and repeats in the duration and standardize methods.
                 if (Timeline) {
-                    newTween = new Timeline({ smoothChildTiming: true }).add(TweenObject);
+                    newTween = new Timeline({smoothChildTiming: true})
+                        .add(TweenObject);
                 } else {
                     newTween = TweenObject;
                 }
@@ -217,15 +212,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 log(1, "ERROR calling method 'setTween()': Supplied argument is not a valid TweenObject");
                 return Scene;
             }
-            if (_tween) {
-                // kill old tween?
+            if (_tween) { // kill old tween?
                 Scene.removeTween();
             }
             _tween = newTween;
 
             // some properties need to be transferred it to the wrapper, otherwise they would get lost.
-            if (TweenObject.repeat && TweenObject.repeat() === -1) {
-                // TweenMax or TimelineMax Object?
+            if (TweenObject.repeat && TweenObject.repeat() === -1) {// TweenMax or TimelineMax Object?
                 _tween.repeat(-1);
                 _tween.yoyo(TweenObject.yoyo());
             }
@@ -237,13 +230,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
 
             // check if there are position tweens defined for the trigger and warn about it :)
-            if (_tween && Scene.controller() && Scene.triggerElement() && Scene.loglevel() >= 2) {
-                // controller is needed to know scroll direction.
-                var triggerTweens = Tween.getTweensOf(Scene.triggerElement()),
+            if (_tween && Scene.controller()  && Scene.triggerElement() && Scene.loglevel() >= 2) {// controller is needed to know scroll direction.
+                var
+                    triggerTweens = Tween.getTweensOf(Scene.triggerElement()),
                     vertical = Scene.controller().info("vertical");
                 triggerTweens.forEach(function (value, index) {
-                    var tweenvars = value.vars.css || value.vars,
-                        condition = vertical ? tweenvars.top !== undefined || tweenvars.bottom !== undefined : tweenvars.left !== undefined || tweenvars.right !== undefined;
+                    var
+                        tweenvars = value.vars.css || value.vars,
+                        condition = vertical ? (tweenvars.top !== undefined || tweenvars.bottom !== undefined) : (tweenvars.left !== undefined || tweenvars.right !== undefined);
                     if (condition) {
                         log(2, "WARNING: Tweening the position of the trigger element affects the scene timing and should be avoided!");
                         return false;
@@ -252,18 +246,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
 
             // warn about tween overwrites, when an element is tweened multiple times
-            if (parseFloat(TweenLite.version) >= 1.14) {
-                // onOverwrite only present since GSAP v1.14.0
-                var list = _tween.getChildren ? _tween.getChildren(true, true, false) : [_tween],
-                    // get all nested tween objects
-                newCallback = function newCallback() {
-                    log(2, "WARNING: tween was overwritten by another. To learn how to avoid this issue see here: https://github.com/janpaepke/ScrollMagic/wiki/WARNING:-tween-was-overwritten-by-another");
-                };
-                for (var i = 0, thisTween, oldCallback; i < list.length; i++) {
+            if (parseFloat(TweenLite.version) >= 1.14) { // onOverwrite only present since GSAP v1.14.0
+                var
+                    list = _tween.getChildren ? _tween.getChildren(true, true, false) : [_tween], // get all nested tween objects
+                    newCallback = function () {
+                        log(2, "WARNING: tween was overwritten by another. To learn how to avoid this issue see here: https://github.com/janpaepke/ScrollMagic/wiki/WARNING:-tween-was-overwritten-by-another");
+                    };
+                for (var i=0, thisTween, oldCallback; i<list.length; i++) {
                     /*jshint loopfunc: true */
                     thisTween = list[i];
-                    if (oldCallback !== newCallback) {
-                        // if tweens is added more than once
+                    if (oldCallback !== newCallback) { // if tweens is added more than once
                         oldCallback = thisTween.vars.onOverwrite;
                         thisTween.vars.onOverwrite = function () {
                             if (oldCallback) {
@@ -309,85 +301,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
             return Scene;
         };
+
     });
-});
-
-var animationsOnScrollModule = function () {
-
-    var $ = require('jquery');
-    var ScrollMagic = require('scrollmagic');
-
-    var animation = $('*[class*="fade"]');
-
-    animation.each(triggerAnimationOnScroll);
-
-    function triggerAnimationOnScroll() {
-
-        var controller = new ScrollMagic.Controller();
-        var scene = new ScrollMagic.Scene({
-
-            triggerElement: this,
-            triggerHook: 0.8
-
-        }).setClassToggle(this, 'animationToggle').addTo(controller);
-    }
-
-    (function rotateCogOnScroll() {
-
-        var tween = TweenMax.to("#cog", 0.5, { rotation: 1080 });
-
-        var controller = new ScrollMagic.Controller();
-
-        var scene = new ScrollMagic.Scene({
-
-            triggerElement: "#skills",
-            duration: "1000%"
-
-        }).setTween(tween).addTo(controller);
-    })();
-}();
-
-var navModule = function () {
-
-    var $ = require('jquery');
-
-    var hamburger = $('.hamburger');
-
-    var mainNavbar = $('.mainNavbar');
-    var mainNavbar__ul = $('.mainNavbar__ul');
-
-    var navigationLink = $('nav a');
-
-    // Hamburger toggle
-
-    hamburger.on('click', hamburgerClickFunction);
-
-    function hamburgerClickFunction() {
-
-        hamburger.toggleClass('is-active');
-        mainNavbar__ul.toggleClass('show_ul');
-        mainNavbar.toggleClass('navbarToggle');
-    };
-
-    // Navigation links - scroll
-
-    navigationLink.on('click', navigationLinkFunction);
-
-    function navigationLinkFunction(event) {
-
-        var target = $(this.getAttribute('href'));
-
-        if (!target.length) {
-
-            event.preventDefault();
-            $("html, body").stop().animate({
-                scrollTop: 0 }, 1000);
-        } else {
-
-            event.preventDefault();
-            $('html, body').stop().animate({
-                scrollTop: target.offset().top
-            }, 1500);
-        };
-    };
-}();
+}));

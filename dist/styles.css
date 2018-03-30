@@ -437,11 +437,20 @@ Media queries
   align-content: center;
   text-align: center;
   position: relative;
-  overflow: visible;
-  margin: 10% auto;
-  height: auto; }
+  overflow: hidden;
+  min-height: 100vh;
+  margin: 10% auto; }
+
+#cog {
+  font-size: 600px;
+  color: #073f77;
+  z-index: 0;
+  position: absolute;
+  left: -350px;
+  text-align: left; }
 
 .container__skills {
+  z-index: 1;
   display: inline-block;
   width: 70%;
   margin: 5% auto;
