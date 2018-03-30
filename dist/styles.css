@@ -325,7 +325,8 @@ Media queries
   padding: 5% 5%;
   background-color: rgba(0, 0, 0, 0.6);
   border-left: 5px solid rgba(0, 0, 0, 0.7);
-  border-right: 5px solid rgba(0, 0, 0, 0.7); }
+  border-right: 5px solid rgba(0, 0, 0, 0.7);
+  border-radius: 10px; }
   .container__about p {
     padding: 20px 5%;
     line-height: 1.5em;
@@ -436,13 +437,19 @@ Media queries
   align-content: center;
   text-align: center;
   position: relative;
-  overflow: hidden; }
+  overflow: visible;
+  margin: 10% auto;
+  height: auto; }
 
 .container__skills {
   display: inline-block;
   width: 70%;
   margin: 5% auto;
-  padding: 5% 5%; }
+  padding: 5% 5%;
+  padding: 80px 20px;
+  border-left: 5px solid rgba(0, 0, 0, 0.7);
+  border-right: 5px solid rgba(0, 0, 0, 0.7);
+  border-radius: 10px; }
 
 .fade-darken {
   background-color: inherit;
@@ -458,7 +465,7 @@ Media queries
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid #f7f7f7;
   padding: 10px 0;
-  margin-bottom: 20px;
+  margin: 20px 0;
   top: 0px; }
 
 .fade-in-right {
@@ -478,12 +485,12 @@ Media queries
   background-color: rgba(250, 250, 250, 0.5);
   border-radius: 10px; }
   .skill .tooltip, .skill-learn .tooltip {
-    z-index: 2;
+    z-index: 3;
     display: none;
     width: 140px;
     color: white;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5em;
     padding: 10px 5px;
     margin: 10px 0;
@@ -491,14 +498,28 @@ Media queries
     border-radius: 5px;
     position: absolute;
     transform: translate(-25px); }
+  .skill:hover, .skill-learn:hover {
+    background-color: rgba(250, 250, 250, 0.7);
+    transition: all 0.5s ease; }
   .skill:hover .tooltip, .skill-learn:hover .tooltip {
     display: block; }
 
 .skill-learn {
   background-color: rgba(250, 250, 250, 0.2); }
-  .skill-learn img {
-    opacity: 0.5; }
+  .skill-learn:hover {
+    background-color: rgba(250, 250, 250, 0.4); }
 
 /*
 Media queries
 */
+@media (max-width: 767px) {
+  .container__skills {
+    padding: 20px 20px 80px 20px; }
+
+  .header__skills {
+    font-size: 30px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    padding: 10px 0; }
+
+  .skill .tooltip, .skill-learn .tooltip {
+    font-size: 14px; } }
