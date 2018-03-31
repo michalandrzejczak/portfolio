@@ -322,7 +322,7 @@ const animationsOnScrollModule = (function(){
         const scene = new ScrollMagic.Scene({
         
             triggerElement: this,
-            triggerHook: 0.8,
+            triggerHook: 0.9,
             
         })
         .setClassToggle(this, 'animationToggle')

@@ -5,7 +5,13 @@ html {
     background-color: #0a5199;
     
 }
-
+main {
+    
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -40px;
+    
+}
 a {
     
 	text-decoration: none;

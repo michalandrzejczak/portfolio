@@ -123,6 +123,11 @@ html {
   color: white;
   background-color: #0a5199; }
 
+main {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -40px; }
+
 a {
   text-decoration: none;
   color: inherit; }
@@ -655,3 +660,13 @@ Media queries
 
   .contact-icon {
     font-size: 30px; } }
+.container__footer {
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  font-size: 14px; }
