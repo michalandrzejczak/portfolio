@@ -661,7 +661,7 @@ Media queries
   .contact-icon {
     font-size: 30px; } }
 .container__footer {
-  height: 40px;
+  height: 50px;
   background-color: rgba(0, 0, 0, 0.7);
   position: relative;
   display: flex;
@@ -670,3 +670,7 @@ Media queries
   align-content: center;
   text-align: center;
   font-size: 14px; }
+
+@media (max-width: 767px) {
+  .container__footer svg {
+    display: none; } }
