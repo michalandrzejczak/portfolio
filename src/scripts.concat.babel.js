@@ -334,13 +334,14 @@ var animationsOnScrollModule = function () {
 
     (function rotateCogOnScroll() {
 
-        var tween = TweenMax.to("#cog", 0.5, { rotation: 1080 });
+        var tween = TweenMax.to("#cog", 0.5, { rotation: 1440 });
 
         var controller = new ScrollMagic.Controller();
 
         var scene = new ScrollMagic.Scene({
 
             triggerElement: "#skills",
+            triggerHook: 1,
             duration: "1000%"
 
         }).setTween(tween).addTo(controller);

@@ -36,6 +36,9 @@
   padding: 10px 0;
   top: 20px; }
 
+/* 
+header animation 
+*/
 .fade-in-left {
   opacity: 0;
   transform: translateX(-100px);
@@ -44,6 +47,9 @@
     opacity: 1;
     transform: translateX(0); }
 
+/* 
+text animation
+*/
 .fade-in {
   opacity: 0;
   transition: all 1s 0.7s ease; }

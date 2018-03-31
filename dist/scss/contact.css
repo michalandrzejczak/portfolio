@@ -1,0 +1,113 @@
+#contact {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  overflow: hidden; }
+
+.triangle-one__contact {
+  position: absolute;
+  z-index: 3;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-right-width: 100vw;
+  border-left-width: 40vw;
+  border-bottom: 100vh solid rgba(0, 0, 0, 0.3); }
+
+.triangle-two__contact {
+  position: absolute;
+  z-index: 2;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-right-width: 110vw;
+  border-left-width: 50vw;
+  border-bottom: 100vh solid rgba(0, 0, 0, 0.2); }
+
+.triangle-three__contact {
+  position: absolute;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border: 0 solid transparent;
+  border-right-width: 120vw;
+  border-left-width: 60vw;
+  border-bottom: 100vh solid rgba(0, 0, 0, 0.2); }
+
+.container__contact {
+  z-index: 4;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  padding: 10% 5%; }
+  .container__contact ul {
+    font-size: 20px;
+    margin: 30px 0; }
+  .container__contact li {
+    margin: 30px 0; }
+  .container__contact span {
+    margin-left: 30px; }
+  .container__contact a:hover {
+    color: #7f7f7f;
+    transition: all 0.5s ease-in-out; }
+    .container__contact a:hover .contact-icon {
+      transform: scale(1.3); }
+
+.contact-icon {
+  font-size: 40px; }
+
+.header__contact {
+  font-size: 40px;
+  color: #f7f7f7;
+  border-left: 1px solid #f7f7f7;
+  padding: 10px 10px;
+  margin: 20px 0;
+  top: 0px; }
+
+/*
+list item animation
+*/
+.fade-in-contact {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1s 0.5s ease-in-out; }
+  .fade-in-contact.animationToggle {
+    opacity: 1;
+    transform: translateX(0); }
+
+/*
+Media queries
+*/
+@media (max-width: 767px) {
+  .triangle-one__contact {
+    border-right-width: 130vw;
+    border-left-width: 70vw;
+    border-bottom: 100vh solid rgba(0, 0, 0, 0.3); }
+
+  .triangle-two__contact {
+    border-right-width: 140vw;
+    border-left-width: 80vw;
+    border-bottom: 100vh solid rgba(0, 0, 0, 0.2); }
+
+  .triangle-three__contact {
+    border-right-width: 150vw;
+    border-left-width: 90vw;
+    border-bottom: 100vh solid rgba(0, 0, 0, 0.2); }
+
+  .header__contact {
+    font-size: 30px; } }
+@media (max-width: 429px) {
+  .container__contact {
+    left: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px; }
+    .container__contact ul {
+      font-size: 16px; }
+    .container__contact span {
+      margin-left: 15px; }
+
+  .contact-icon {
+    font-size: 30px; } }

@@ -21,6 +21,7 @@
   display: inline-block;
   width: 70%;
   margin: 5% auto;
+  margin-bottom: 150px;
   padding: 5% 5%;
   padding: 80px 20px;
   border-left: 5px solid rgba(0, 0, 0, 0.7);
@@ -44,6 +45,9 @@
   margin: 20px 0;
   top: 0px; }
 
+/*
+header animation
+*/
 .fade-in-right {
   opacity: 0;
   transform: translateX(100px);
