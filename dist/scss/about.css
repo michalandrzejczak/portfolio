@@ -128,3 +128,8 @@ Media queries
   .triangle-three__about {
     top: 0;
     border-top: 400px solid #a0a0a0; } }
+@media (max-height: 400px) {
+  .container__about {
+    top: 10px; }
+    .container__about p {
+      font-size: 14px; } }

@@ -252,3 +252,19 @@ Media queries
     }
   
 }
+
+@media (max-height: 400px) {
+    
+        .container__about {
+        
+            top: 10px;
+        
+        p {
+            
+            font-size: 14px;
+            
+        }
+        
+    }
+    
+}

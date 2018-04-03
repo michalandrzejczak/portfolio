@@ -1,6 +1,6 @@
 #contact {
-
-    height: 100vh;
+    
+    min-height: 100vh;
     
     display: flex;
     
@@ -59,13 +59,33 @@
     
 }
 
+.triangle-extension {
+    
+    display: none;
+    
+    position: absolute;
+    
+    top: 125vh;
+    
+    height: 1000px;
+    
+    width: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.56);
+
+    
+}
+
+
 .container__contact {
     
     z-index: 4;
     
     position: absolute;
     
-    top: 20%;
+    overflow: visible;
+    
+    top: 15%;
     left: 5%;
     
     padding: 10% 5%;
@@ -216,4 +236,50 @@ Media queries
 
     }
        
+}
+
+@media (max-width: 850px) and (orientation: landscape) {
+    
+    #contact {
+        
+        min-height: 150vh;
+        
+    }
+    
+    .triangle-extension {
+        
+        display: inherit;
+        
+    }
+    
+     .header__contact {
+    
+        font-size: 25px;
+    
+    }
+    
+     .contact-icon {
+
+        font-size: 25px;
+
+    }
+    
+     .container__contact {
+      
+
+        ul {
+        
+            font-size: 16px;
+  
+        }
+        
+        span {
+             
+            margin-left: 15px;
+        
+        }
+        
+    }
+       
+
 }
