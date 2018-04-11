@@ -1,5 +1,3 @@
-/*eslint-env node*/
-
 const gulp = require('gulp');
 const sass = require('gulp-ruby-sass');
 const uglify = require('gulp-uglify');
@@ -17,8 +15,14 @@ gulp.task('sass', () =>
         .pipe(gulp.dest('dist'))
 );
 
+gulp.task('concatjs', () =>
+    return gulp.src('src/js/*.js')
+        .pipe(concat('scripts.concat.js'))
+        .pipe(gulp.dest('src'));
+);
+
 gulp.task('babel', () =>
-    gulp.src('src/scripts.concat.js')
+          gulp.src('src/scripts.concat.js')
         .pipe(babel({
             presets: ['env']
         }))
@@ -30,36 +34,7 @@ gulp.task('babel', () =>
         .pipe(gulp.dest('src'))
 );
 
-gulp.task('uglify', function (cb) {
-  pump([
-        gulp.src('src/scripts.bundle.js'),
-        uglify(),
-        gulp.dest('dist')
-    ],
-    cb
-  );
-});
-
-gulp.task('htmlmin', function() {
-  return gulp.src('src/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('cssmin', function () {
-    gulp.src('dist/styles.css')
-        .pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('dist'));
-});
-
-gulp.task('concatjs', function() {
-  return gulp.src('src/js/*.js')
-    .pipe(concat('scripts.concat.js'))
-    .pipe(gulp.dest('src'));
-});
-
-gulp.task('browserify', function() {
+gulp.task('browserify', () =>
     gulp.src('src/scripts.concat.babel.js')
         .pipe(browserify({
           insertGlobals : true,
@@ -67,11 +42,33 @@ gulp.task('browserify', function() {
         }))
         .pipe(rename('scripts.bundle.js'))
         .pipe(gulp.dest('src'))
+);
+
+gulp.task('uglify', (cb) => {
+    pump([
+        gulp.src('src/scripts.bundle.js'),
+        uglify(),
+        gulp.dest('dist')
+    ],
+    cb
+        );
 });
 
-gulp.task('watchproject', ['sass'], function () {
-    // gulp.watch('src/**/*.scss', ['']); //
-	gulp.watch('src/**/*.scss', ['sass']);
+gulp.task('htmlmin', () =>
+    gulp.src('src/*.html')
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest('dist'));
+);
+
+gulp.task('cssmin', () => 
+    gulp.src('dist/styles.css')
+        .pipe(cssmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('dist'));
+);
+
+gulp.task('watchproject', ['sass'], () => {
+    gulp.watch('src/**/*.scss', ['sass']);
     gulp.watch('src/js/*.js', ['concatjs']);
     gulp.watch('src/scripts.concat.js', ['babel']);
     gulp.watch('src/scripts.concat.babel.js', ['browserify']);
@@ -79,5 +76,3 @@ gulp.task('watchproject', ['sass'], function () {
     gulp.watch('src/*.html', ['htmlmin']);
     gulp.watch('dist/styles.css', ['cssmin']);
 });
-
-// między babel a uglify musi być browserify scripts.contact.js -o scripts.budle.js // 
