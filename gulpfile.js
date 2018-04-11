@@ -16,13 +16,13 @@ gulp.task('sass', () =>
 );
 
 gulp.task('concatjs', () =>
-    return gulp.src('src/js/*.js')
+    gulp.src('src/js/*.js')
         .pipe(concat('scripts.concat.js'))
         .pipe(gulp.dest('src'));
 );
 
 gulp.task('babel', () =>
-          gulp.src('src/scripts.concat.js')
+    gulp.src('src/scripts.concat.js')
         .pipe(babel({
             presets: ['env']
         }))
