@@ -1,3 +1,3 @@
 # portfolio
 
-live: https://michalandrzejczak.github.io/portfolio/dist/index.html
+live: http://michalandrzejczak.com/
