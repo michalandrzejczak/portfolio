@@ -306,14 +306,13 @@
 }));
 
 
-const animationsOnScrollModule = (function(){
+const animationsModule = (function(){
  
     const $ = require('jquery');
     const ScrollMagic = require('scrollmagic');
     
     const animation =  $('*[class*="fade"]');
     
-  
     animation.each(triggerAnimationOnScroll);
  
     function triggerAnimationOnScroll() {
@@ -330,7 +329,7 @@ const animationsOnScrollModule = (function(){
         
     }
     
-    (function rotateCogOnScroll() {
+    function rotateCogOnScroll() {
         
         const tween = TweenMax.to("#cog", 0.5, {rotation: 1440});
         
@@ -346,7 +345,8 @@ const animationsOnScrollModule = (function(){
         .setTween(tween)
         .addTo(controller); 
         
-    })()
+    }
+    rotateCogOnScroll();
  
 })()
 
@@ -357,31 +357,27 @@ const navModule = (function() {
     const hamburger = $('.hamburger');
     
     const mainNavbar = $('.mainNavbar');
-    const mainNavbar__ul = $('.mainNavbar__ul');
+    const navbarList = $('.mainNavbar__ul');
     
     const navigationLink = $('nav a');
     
-    
-    // Hamburger toggle
-    
-    hamburger.on('click', hamburgerClickFunction)
+    // Hamburger toggle    
+    hamburger.on('click', hamburgerToggle)
         
-    function hamburgerClickFunction() {
+    function hamburgerToggle() {
         
         hamburger.toggleClass('is-active');
-        mainNavbar__ul.toggleClass('show_ul');
+        navbarList.toggleClass('show_ul');
         mainNavbar.toggleClass('navbarToggle');
  
     };
     
-    
-    // Navigation links - scroll
-    
+    // Navigation links - scroll    
     navigationLink.on('click', navigationLinkFunction)
     
     function navigationLinkFunction(event) {
         
-        let target = $(this.getAttribute('href'));
+        const target = $(this.getAttribute('href'));
         
         if (!target.length) {
             
@@ -399,7 +395,5 @@ const navModule = (function() {
         };
         
     };
-        
 
-    
 })();

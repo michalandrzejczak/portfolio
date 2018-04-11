@@ -312,7 +312,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     });
 });
 
-var animationsOnScrollModule = function () {
+var animationsModule = function () {
 
     var $ = require('jquery');
     var ScrollMagic = require('scrollmagic');
@@ -332,7 +332,7 @@ var animationsOnScrollModule = function () {
         }).setClassToggle(this, 'animationToggle').addTo(controller);
     }
 
-    (function rotateCogOnScroll() {
+    function rotateCogOnScroll() {
 
         var tween = TweenMax.to("#cog", 0.5, { rotation: 1440 });
 
@@ -345,7 +345,8 @@ var animationsOnScrollModule = function () {
             duration: "1000%"
 
         }).setTween(tween).addTo(controller);
-    })();
+    }
+    rotateCogOnScroll();
 }();
 
 var navModule = function () {
@@ -355,23 +356,21 @@ var navModule = function () {
     var hamburger = $('.hamburger');
 
     var mainNavbar = $('.mainNavbar');
-    var mainNavbar__ul = $('.mainNavbar__ul');
+    var navbarList = $('.mainNavbar__ul');
 
     var navigationLink = $('nav a');
 
-    // Hamburger toggle
+    // Hamburger toggle    
+    hamburger.on('click', hamburgerToggle);
 
-    hamburger.on('click', hamburgerClickFunction);
-
-    function hamburgerClickFunction() {
+    function hamburgerToggle() {
 
         hamburger.toggleClass('is-active');
-        mainNavbar__ul.toggleClass('show_ul');
+        navbarList.toggleClass('show_ul');
         mainNavbar.toggleClass('navbarToggle');
     };
 
-    // Navigation links - scroll
-
+    // Navigation links - scroll    
     navigationLink.on('click', navigationLinkFunction);
 
     function navigationLinkFunction(event) {

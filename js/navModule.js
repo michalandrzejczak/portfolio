@@ -5,31 +5,27 @@ const navModule = (function() {
     const hamburger = $('.hamburger');
     
     const mainNavbar = $('.mainNavbar');
-    const mainNavbar__ul = $('.mainNavbar__ul');
+    const navbarList = $('.mainNavbar__ul');
     
     const navigationLink = $('nav a');
     
-    
-    // Hamburger toggle
-    
-    hamburger.on('click', hamburgerClickFunction)
+    // Hamburger toggle    
+    hamburger.on('click', hamburgerToggle)
         
-    function hamburgerClickFunction() {
+    function hamburgerToggle() {
         
         hamburger.toggleClass('is-active');
-        mainNavbar__ul.toggleClass('show_ul');
+        navbarList.toggleClass('show_ul');
         mainNavbar.toggleClass('navbarToggle');
  
     };
     
-    
-    // Navigation links - scroll
-    
+    // Navigation links - scroll    
     navigationLink.on('click', navigationLinkFunction)
     
     function navigationLinkFunction(event) {
         
-        let target = $(this.getAttribute('href'));
+        const target = $(this.getAttribute('href'));
         
         if (!target.length) {
             
@@ -47,7 +43,5 @@ const navModule = (function() {
         };
         
     };
-        
 
-    
 })();
