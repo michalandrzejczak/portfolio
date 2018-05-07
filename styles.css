@@ -157,6 +157,13 @@ a {
   transition: all 0.2s ease; }
   .mainNavbar__li:hover {
     transform: scale(1.2); }
+.mainNavbar__li--special {
+	color: #cecece;
+	margin-left: 40px;
+	font-size: 20px;
+	transition: all 0.2s ease; }
+	.mainNavbar__li--special:hover {
+		transform: scale(1.2); }
 
 /* 
 Hamburger button 
@@ -188,7 +195,6 @@ Media queries
 
   .mainNavbar__ul {
     width: 100%;
-    min-height: 330px;
     display: flex;
     flex-direction: column;
     display: none; }
@@ -198,12 +204,12 @@ Media queries
 
   .mainNavbar__li {
     margin-left: 0px;
-    margin-top: 40px;
-    font-size: 26px; }
+    margin-top: 35px;
+    font-size: 20px; }
 
   .navbarToggle {
     width: 100%;
-    min-height: 330px;
+    min-height: 310px;
     transition: width 0.25s ease; } }
 header {
   height: 100vh;
