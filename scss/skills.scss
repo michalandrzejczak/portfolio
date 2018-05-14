@@ -122,7 +122,13 @@ header animation
     
     border-radius: 10px;
     
-    
+		img {
+		
+				max-width: 100px;
+				max-height: 100px;
+		
+		}
+	
     .tooltip {
         
         z-index: 3;
