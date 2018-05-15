@@ -380,11 +380,13 @@ var navModule = function () {
         if (!target.length) {
 
             event.preventDefault();
+						hamburgerToggle();
             $("html, body").stop().animate({
                 scrollTop: 0 }, 1000);
         } else {
 
             event.preventDefault();
+						hamburgerToggle();
             $('html, body').stop().animate({
                 scrollTop: target.offset().top
             }, 1500);
