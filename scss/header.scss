@@ -2,10 +2,21 @@ header {
     
     height: 100vh;
     
+    display: -webkit-box;
+    
+    display: -ms-flexbox;
+    
     display: flex;
     
+    -webkit-box-align:center;
+    
+    -ms-flex-align:center;
+    
     align-items:center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-line-pack: center;
     align-content: center;
     
     position: relative;
@@ -17,10 +28,18 @@ header {
 .name {
     
     position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     z-index: 4;
     
+    -webkit-box-pack: end;
+    
+    -ms-flex-pack: end;
+    
     justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     text-align: right;
     
@@ -105,7 +124,10 @@ name animation
 
     opacity: 0;
 
+    -webkit-transform: translate(-20vw,-10vh) rotate(-60deg);
+
     transform: translate(-20vw,-10vh) rotate(-60deg);
+    -webkit-transition: all 1.5s ease;
     transition: all 1.5s ease;
 
     // scrollmagic class // 
@@ -113,7 +135,10 @@ name animation
             
         opacity: 1;
 
+        -webkit-transform: translate(0);
+
         transform: translate(0);
+        -webkit-transition: all 1s 0.5s cubic-bezier(0.18, 0.89, 0.3, 1);
         transition: all 1s 0.5s cubic-bezier(0.18, 0.89, 0.3, 1); 
      }
 }
