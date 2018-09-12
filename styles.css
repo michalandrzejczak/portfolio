@@ -124,9 +124,7 @@ html {
   background-color: #0a5199; }
 
 main {
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: -40px; }
+  min-height: 100%; }
 
 a {
   text-decoration: none;
@@ -207,6 +205,7 @@ Media queries
 
   .mainNavbar__ul {
     width: 100%;
+    padding: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -229,6 +228,7 @@ Media queries
   .navbarToggle {
     width: 100%;
     min-height: 310px;
+    background-color: rgba(0, 0, 0, 0.7);
     -webkit-transition: width 0.25s ease;
     transition: width 0.25s ease; } }
 header {
@@ -774,7 +774,6 @@ Media queries
   .container__contact span {
     margin-left: 15px; } }
 footer {
-  z-index: 10;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -782,18 +781,15 @@ footer {
   -ms-flex-pack: center;
   justify-content: center;
   -ms-flex-line-pack: center;
-  align-content: center;
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  min-height: 50px; }
 
 .container__footer {
   height: 50px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
