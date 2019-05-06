@@ -1,10 +1,10 @@
 # portfolio
 
-> **live:** http://michalandrzejczak.com/
+> **live:** https://michalandrzejczak.github.io/portfolio/
 
 ## Description
 
-The project has been made to be considered as introduction to my person, skills and contact. The concept of "business card".
+First portfolio page. The project has been made to be considered as introduction to my person, skills and contact. The concept of "business card".
 
 I realize, that some features may differ from properly done ones and could have been done better.  This occurs to be first bigger project made personally, when I've came across some tools, plugins and functions for the first time. 
 
